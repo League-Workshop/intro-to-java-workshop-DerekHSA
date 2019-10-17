@@ -5,61 +5,77 @@ import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
 public class DragonFight {
-	// 1. Put all of the game code inside the main method (below) 
 	public static void main(String[] args) {
-		
-		ImageIcon dragon = new ImageIcon("src/section4/dragonPicture.jpg");		
-		
-		JOptionPane.showMessageDialog(null, "Defeat the dragon to take its treasure!", "Dragon Fighter", 0, dragon);
-		// 2. Create a variable called "playerHealth" to store your health (set it equal to 100)
-	
-		// 3. Create a variable called "dragonHealth" to store the dragon's health (set it equal to 100)
-		
-		// 4. Create a variable to hold the damage the player's attack does each round
-		
-		// 5. Create a variable to hold the damage the dragon's attack does each round
-		
-		
-		// 6.  Delete the slashes at the beginning of the next line.  
-		//while(playerHealth>0 && dragonHealth>0) {    //this line of code keeps the battle going until someone's health reaches 0 
-		
-		// 7. Add a closing mustache at the very bottom of this program (since we just added an opening mustache on the previous step).
-		
-		// 8. Ask the player in a pop-up if they want to attack the dragon with a yell or a kick
-		
-		// 9. If they typed in "yell":
-		
-			//-- Find a random number between 0 and 10 and store it in dragonDamage
+
+		ImageIcon dragon = new ImageIcon("src/section4/dragonPicture.jpg");
+		JOptionPane.showMessageDialog(null, "The Heros go to defeat the dragon that has been\nterrorizing San Elijo Hills.\nDefeat the dragon to take its treasure!", "Dragon Fighter", 0, dragon);
+		String Character=JOptionPane.showInputDialog("Choose your fighter!\nNaruto\nOne-Punch Man\nSans\nLink");
+		int P_H = 100;
+		int D_H = 100;
+		int P_Attck = 0;
+		int D_Attck = 0;
+		while (P_H > 0 && D_H > 0) {
+			if (Character.equalsIgnoreCase("Sans")) {
+				String This_Or_That = JOptionPane.showInputDialog(null, "Do you attack the dragon?\nBones/Ghaster Blaster/Teleport?");
+				if (This_Or_That.equalsIgnoreCase("Bones")) {
+					P_Attck = new Random().nextInt(26);
+					D_H -= P_Attck;
+				}
+				if (This_Or_That.equalsIgnoreCase("Ghaster Blaster")) {
+					P_Attck = new Random().nextInt(76);
+					D_H -= P_Attck;
+				}
+				if (This_Or_That.equalsIgnoreCase("Teleport")) {
+					P_H += D_Attck;
+				}}
+			if (Character.equalsIgnoreCase("One-Punch Man")) {
+				String This_Or_That = JOptionPane.showInputDialog(null,"");
+				if (This_Or_That.equalsIgnoreCase("Punch")) {
+					P_Attck = (100);
+					D_H -= P_Attck;
+				}}
+			if (Character.equalsIgnoreCase("Link")) {
+			String This_Or_That = JOptionPane.showInputDialog(null, "Do you attack the dragon?\nYell/Hit/Slash/Eat?");
+			if (This_Or_That.equalsIgnoreCase("Yell")) {
+				P_Attck = new Random().nextInt(11);
+				D_H -= P_Attck;
+			}
+			if (This_Or_That.equalsIgnoreCase("Hit")) {
+				P_Attck = new Random().nextInt(26);
+				D_H -= P_Attck;
+			}
+			if (This_Or_That.equalsIgnoreCase("Slash")) {
+				P_Attck = new Random().nextInt(51);
+				D_H -= P_Attck;
+			}
+			if (This_Or_That.equalsIgnoreCase("Eat")) {
+				P_Attck = new Random().nextInt(101);
+				P_H += P_Attck;
+			}}
+			if (Character.equalsIgnoreCase("Naruto")) {
+				String This_Or_That = JOptionPane.showInputDialog(null, "Do you attack the dragon?\nShadow Clone/Resengan/Rice Ball?");
+				if (This_Or_That.equalsIgnoreCase("Shadow Clone")) {
+					P_Attck = new Random().nextInt(101);
+					D_H -= P_Attck;
+				}
+				if (This_Or_That.equalsIgnoreCase("Resengan")) {
+					P_Attck = new Random().nextInt(51);
+					D_H -= P_Attck;
+				}
+				if (This_Or_That.equalsIgnoreCase("Rice Ball")) {
+					P_Attck = (20);
+					P_H += P_Attck;
+				}}
+			D_Attck = new Random().nextInt(36);
+			P_H -= D_Attck;
 			
-			//-- Subtract that number from the dragon's health variable 
-			
-		// 10. If they typed in "kick":
-		
-			//-- Find a random number between 0 and 25 and store it in dragonDamage
-			
-			//-- Subtract that number from the dragon's health variable
-			
-			
-		
-		// 11.  Find a random number between 0 and 35 and store it in playerDamage
-		
-		// 12. Subtract this number from the player's health
-		
-		
-		
-		// 13. If the user's health is less than or equal to 0
-		
-			//-- Tell the user that they lost
-			
-		
-		// 14. Else if the dragon's health is less than or equal to 0
-		
-			//-- Tell the user that the dragon is dead and they took a ton of gold!
-			
-	   //  15.  Else
-			
-			//-- Pop up a message that tells the their current health and the dragon's currently health (Bonus: Also display the amount of health that was lost for each player this round)
-			
+			if (P_H <= (0)) {
+				JOptionPane.showMessageDialog(null, "GAME OVER");
+			} else if (D_H <= (0)) {
+				JOptionPane.showMessageDialog(null, "You Won\n1,000,000G gained");
+			} else {
+JOptionPane.showMessageDialog(null, "Player Health: "+P_H+"\nDragon Health: "+D_H+"\nDamage Taken: "+D_Attck+"\nDamage Dealt/Healed:"+P_Attck);
+			}
 		}
 	}
-
+}
