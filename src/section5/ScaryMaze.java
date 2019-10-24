@@ -1,6 +1,7 @@
 package section5;
 
 import java.applet.AudioClip;
+import java.awt.AWTException;
 import java.awt.Dimension;
 
 import java.awt.Graphics;
@@ -24,14 +25,12 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 
 	ScaryMaze() throws Exception {
 		//1. Use this online tool to make a maze image and drop it into your section5 package: https://www.pixilart.com/
-		//maze = ImageIO.read(getClass().getResource("standardMaze.jpg"));
-		//2. Change the line of code above so that it matches your maze's file name
-		
+		maze = ImageIO.read(getClass().getResource("Maze.png"));		
 		//3. Set the mouse pointer to the start of your maze using:
-		//new Robot().mouseMove(45, 95);
+		new Robot().mouseMove(250, 199);
 		
 		//4. Add a mouse motion listener using:
-		//addMouseMotionListener(this);
+		addMouseMotionListener(this);
 		
 	}
 
@@ -41,19 +40,27 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 		int mouseY = e.getY();
 		int mouseColor = maze.getRGB(mouseX, mouseY);
 		//5. Print the mouseColor variable 
-		
+		System.out.println(mouseColor);
 		//6.  Run your program and put your mouse over the background to find out what color it is
 		
 		//7. Create an int variable that holds the background color. 
-		
+		int Background = -65536;
 		//8. If the mouse falls off the path (if it is on the background)
-	
+	if (mouseColor == -65536){
 				// call the scare method
-		
+	scare();
+	try {
+		new Robot().mouseMove(250, 199);
+	} catch (AWTException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+	}
 		//13. If the mouse is on the end color
-		
-				// pop up a message to tell them they won
-		
+	if (mouseColor == -16244522){
+		JOptionPane.showMessageDialog(null, "YOU WON!\n1,000,000G WON!");	
+		// pop up a message to tell them they won
+	}
 	}
 
 	private void scare() {
@@ -66,7 +73,6 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 		//11. Play the scary sound. Hint: type "sound" and then a period.		
 		
 		//12. Drop an image into your section5 package, and use the showScaryImage method to scare your victim!
-		
 	}
 
 	private void showScaryImage(String imageName) {
@@ -95,7 +101,7 @@ public class ScaryMaze extends JPanel implements Runnable, MouseMotionListener {
 
 	@Override
 	public void paintComponent(Graphics g) {
-		g.drawImage(maze, 0, 0, null);
+		g.drawImage(maze, 0, 0, frameWidth, frameHeight, null);
 	}
 
 	@Override

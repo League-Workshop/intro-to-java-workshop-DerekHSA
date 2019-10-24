@@ -9,7 +9,6 @@ public class DragonFight {
 
 		ImageIcon dragon = new ImageIcon("src/section4/dragonPicture.jpg");
 		JOptionPane.showMessageDialog(null, "The Heros go to defeat the dragon that has been\nterrorizing San Elijo Hills.\nDefeat the dragon to take its treasure!", "Dragon Fighter", 0, dragon);
-		String Character=JOptionPane.showInputDialog("Choose your fighter!\nNaruto\nSans\nLink");
 		int L_H = 100;//
 		int S_H = 1;//
 		int O_H = 100;//
@@ -18,6 +17,7 @@ public class DragonFight {
 		int P_Attck = 0;
 		int D_Attck = 0;
 		while (L_H > 0 && D_H > 0 && O_H > 0 && S_H > 0 && N_H > 0) {
+			String Character=JOptionPane.showInputDialog("Choose your fighter!\nNaruto\nSans\nLink\nOne-Punch Man");
 			if (Character.equalsIgnoreCase("Sans")) {
 				String This_Or_That = JOptionPane.showInputDialog(null, "Do you attack the dragon?\nBones/Ghaster Blaster/Teleport?");
 				if (This_Or_That.equalsIgnoreCase("Bones")) {
@@ -30,13 +30,15 @@ public class DragonFight {
 				}
 				if (This_Or_That.equalsIgnoreCase("Teleport")) {
 					S_H += D_Attck;
-				}}
+				}D_Attck = new Random().nextInt(36);
+				S_H -= D_Attck;}
 			if (Character.equalsIgnoreCase("One-Punch Man")) {
 				String This_Or_That = JOptionPane.showInputDialog(null,"");
 				if (This_Or_That.equalsIgnoreCase("Punch")) {
 					P_Attck = (100);
 					D_H -= P_Attck;
-				}}
+				}D_Attck = new Random().nextInt(36);
+				O_H -= D_Attck;}
 			if (Character.equalsIgnoreCase("Link")) {
 			String This_Or_That = JOptionPane.showInputDialog(null, "Do you attack the dragon?\nYell/Hit/Slash/Eat?");
 			if (This_Or_That.equalsIgnoreCase("Yell")) {
@@ -75,12 +77,12 @@ public class DragonFight {
 				N_H -= D_Attck;}
 			
 			
-			if (P_H <= (0)) {
+			if (L_H < 0 && D_H < 0 && O_H < 0 && S_H < 0 && N_H < 0) {
 				JOptionPane.showMessageDialog(null, "GAME OVER");
 			} else if (D_H <= (0)) {
 				JOptionPane.showMessageDialog(null, "You Won\n1,000,000G gained");
 			} else {
-JOptionPane.showMessageDialog(null, "Player Health: "+P_H+"\nDragon Health: "+D_H+"\nDamage Taken: "+D_Attck+"\nDamage Dealt/Healed:"+P_Attck);
+JOptionPane.showMessageDialog(null, "Naruto's Health: "+N_H+"\nSans's Health: "+S_H+"\nLink's Health: "+L_H+"\nOne-Punch Man's Health: "+O_H+"\nDragon Health: "+D_H+"\nDamage Taken: "+D_Attck+"\nDamage Dealt/Healed:"+P_Attck);
 			}
 		}
 	}
