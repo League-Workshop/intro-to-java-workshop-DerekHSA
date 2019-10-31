@@ -30,7 +30,7 @@ public class DragonFight {
 				}
 				if (This_Or_That.equalsIgnoreCase("Teleport")) {
 					S_H += D_Attck;
-				}D_Attck = new Random().nextInt(36);
+				}D_Attck = new Random().nextInt(2);
 				S_H -= D_Attck;}
 			if (Character.equalsIgnoreCase("One-Punch Man")) {
 				String This_Or_That = JOptionPane.showInputDialog(null,"");
@@ -69,7 +69,7 @@ public class DragonFight {
 					P_Attck = new Random().nextInt(51);
 					D_H -= P_Attck;
 				}
-				if (This_Or_That.equalsIgnoreCase("Rice Ball")) {
+				if (This_Or_That.equalsIgnoreCase("Ramen")) {
 					P_Attck = (20);
 					N_H += P_Attck;
 				}
@@ -77,7 +77,7 @@ public class DragonFight {
 				N_H -= D_Attck;}
 			
 			
-			if (L_H < 0 && D_H < 0 && O_H < 0 && S_H < 0 && N_H < 0) {
+			if (L_H< 0 && O_H< 0 && S_H< 0 && N_H < 0 && D_H < 0) {
 				JOptionPane.showMessageDialog(null, "GAME OVER");
 			} else if (D_H <= (0)) {
 				JOptionPane.showMessageDialog(null, "You Won\n1,000,000G gained");
